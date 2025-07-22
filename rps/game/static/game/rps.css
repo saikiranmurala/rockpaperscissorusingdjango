@@ -1,0 +1,168 @@
+/* Neon-themed Rock Paper Scissors Game */
+
+body {
+  font-family: 'Orbitron', 'Poppins', Arial, sans-serif;
+  /* background: url('{% static "game/gaming.png" %}') no-repeat center center fixed; */
+  background-color: black;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  color: #00ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 40px 30px 30px 30px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px #00ffff88, 0 0 10px #333 inset;
+  text-align: center;
+  max-width: 440px;
+  margin: 30px auto;
+  backdrop-filter: blur(2px);
+}
+
+h1 {
+  font-size: 2.1em;
+  color: #00ffe7;
+  animation: neonflicker 2.5s linear infinite alternate;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #00ffff, 0 0 40px #0099ff;
+}
+h3 {
+  color: #ffffffb3;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.weapons {
+  margin: 26px auto 12px auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.weapons button {
+  background: #00ffff;
+  color: #222;
+  border: none;
+  font-size: 2.7em;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 0 14px #00ffffb8, 0 0 36px #0099ff44;
+}
+
+.weapons button:hover {
+  background: #0fffc3;
+  color: #222;
+  box-shadow: 0 0 28px #00ffff, 0 0 60px #22bbff, 0 0 10px #fff;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.scores {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 4px #00fff9;
+}
+
+.details {
+  margin-top: 20px;
+  min-height: 80px;
+  text-align: center;
+  font-size: 1.15em;
+  color: #d0feff;
+}
+.details span {
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 6px #00ffe7;
+}
+#result {
+  margin: 20px auto 0 auto;
+  padding: 12px 0;
+  width: 180px;
+  border-radius: 10px;
+  font-size: 1.03em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #0028ff;
+}
+
+button[type="button"],
+button[onclick*="reload"],
+button[onclick*="playNTimes"] {
+  margin: 18px 10px 0 10px;
+  padding: 12px 28px;
+  font-size: 1.1em;
+  background: #00ffff;
+  color: #09131a;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  box-shadow: 0 0 16px #00ffe4, 0 0 6px #0099ff;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+  outline: none;
+}
+button[type="button"]:hover {
+  background: #fff;
+  color: #00bbae;
+  box-shadow: 0 0 32px #b8ffe7, 0 0 12px #fff;
+  transform: scale(1.1);
+}
+
+#overall-result {
+  margin-top: 22px;
+  font-size: 1.08em;
+  color: #f6ffc4;
+  text-shadow: 0 0 8px #fff18b;
+  font-weight: bold;
+  min-height: 30px;
+  animation: fadeIn 1.5s;
+}
+
+@keyframes neonflicker {
+  0%, 100% { text-shadow: 0 0 12px #00ffff, 0 0 32px #0099ff; }
+  60% { text-shadow: 0 0 30px #00ffef, 0 0 42px #1ee3ff; }
+  65% { text-shadow: 0 0 2px #12fbff, 0 0 28px #fff; }
+  67%, 70% { text-shadow: 0 0 55px #fff, 0 0 32px #00d4ff; }
+  71% { text-shadow: 0 0 12px #00beff, 0 0 24px #55f2ff; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Responsive Design for small screens */
+@media(max-width: 600px) {
+  .container {
+    max-width: 95vw;
+    padding: 18px 4vw;
+  }
+  h1 { font-size: 1.35em; }
+  .quotes { font-size: 1em; }
+}

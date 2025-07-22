@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>⚡ Gamerz World ⚡</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      {% comment %} background: url("{% static 'game/gaming.png' %}") no-repeat center center fixed; {% endcomment %}
+      background-size: cover;
+      background-color: #000;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #00ffff;
+      text-shadow: 0 0 10px #a6ff00ff, 0 0 20px #d9ff00ff;
+      overflow: hidden;
+    }
+
+    .title {
+      font-size: 3em;
+      text-align: center;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .quotes {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: rgba(255, 255, 255, 0.9);
+      width: 80%;
+      text-align: center;
+      line-height: 1.6;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .btn-container {
+      margin-top: 40px;
+      animation: slideUp 3s ease-in-out;
+    }
+
+    #start-btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      background: #1aff00ff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      animation: flicker 1.5s infinite;
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    #start-btn:hover {
+      background-color: #fff;
+      color: #00ffff;
+      box-shadow: 0 0 20px #fff;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #33ccff;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #33ccff;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+
+      20%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="title">⚡ WELCOME TO GAMERZ WORLD ⚡</div>
+
+  <div class="quotes">
+    “Gaming is not just a hobby, it's a lifestyle.”<br>
+    “Every move counts. Make yours legendary.”<br>
+    “The only limit is the one you set yourself.”<br>
+    “In the battle of Rock, Paper, Scissors – strategy wins.”
+  </div>
+
+  <div class="btn-container">
+    <button id="start-btn" onclick="window.location.href='/load/'">PLAY GAME</button>
+  </div>
+
+  <footer>Crafted for future champions 🎮</footer>
+</body>
+</html>
